@@ -2,9 +2,10 @@
 Will contain the docker specific parts of hosting my scs_ai repo with docker/kubernetes
 
 ### Progress
-13.05.23 - set up docker on hostmachine, created and configured docker-compose.yml to make the webui availabe on port 8443
+#### 13.05.23
+set up docker on hostmachine, created and configured docker-compose.yml to make the webui availabe on port 8443
  - not yet reachable, not sure why
- - > works via CLI (details removed), issue seems to be fixed when using --network=host
+ -- works via CLI (details removed), issue seems to be fixed when using --network=host
  docker run -d \
 --name=code-server \
 --network=host \
