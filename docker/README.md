@@ -21,9 +21,13 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
      ```
 
 #### 14.05.23
-docker-compose.yml is reachable 
+1. docker-compose.yml is reachable 
 - if `network_mode: host` is added on code-server-config level
 
-~~trying to make the password via file work~~
-- normal file can't be found by code-server
-  - seems like the password has to be input via swarm secret, postponed for now
+2. ~~trying to make the password via file work~~
+- ~~normal file can't be found by code-server~~
+  - ~~seems like the password has to be input via swarm secret, postponed for now~~
+
+3. preparing the env to run the scs_ai flaskapp
+   - added the venv, installed required modules and `pip freeze >> requirements.txt`
+    - app runs fine
