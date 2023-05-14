@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>scs-faq-domains</title>
+		<style>
+				body {
+						font-family: 'Roboto', sans-serif;
+						background-color: #f2f2f2;
+						margin: 0;
+						padding: 0;
+				}
+				.container {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						height: 60vh;
+				}
+				h1 {
+						margin: 0;
+						font-size: 2.5rem;
+						text-align: center;
+						color: #333333;
+				}
+				form {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						margin-top: 1.5rem;
+				}
+				label {
+						font-size: 1.2rem;
+						font-weight: bold;
+						margin-bottom: 0.5rem;
+						color: #333333;
+				}
+				input[type="text"] {
+						padding: 0.5rem;
+						border: none;
+						border-radius: 0.5rem;
+						background-color: #ffffff;
+						box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+						width: 100%;
+						max-width: 600px;
+						margin-bottom: 1rem;
+						text-align: center;
+				}
+				button {
+						padding: 0.5rem 1rem;
+						border: none;
+						border-radius: 0.5rem;
+						background-color: #0099ff;
+						color: #ffffff;
+						font-weight: bold;
+						cursor: pointer;
+						transition: background-color 0.3s ease-in-out;
+				}
+				button:hover {
+						background-color: #0077cc;
+				}
+				.response {
+						font-size: 1.2rem;
+						margin-top: 1.5rem;
+						text-align: center;
+						color: #333333;
+				}
+		</style>
+	</head>
+	<body>
+		<h1 style="margin-top: 90px;">scs-faq-domains-2023</h1><br>
+
+		<div class="container">
+			<form method="POST">
+				<label for="user_input">Enter your prompt:</label>
+				<input type="text" id="user_input" name="user_input"><br>
+				<button type="submit" id="prompt_button">Submit</button>
+			</form>
+			<script>
+				document.getElementById('prompt_button').addEventListener('click', function() {this.style.display = 'none'});
+			</script>
+			{% if output %}
+			<p class="response">---------------<br><br>Prompt:</p>
+			<p class="response">{{ user_input }}</p>
+			<p class="response">---------------<br><br>Response:</p>
+			<p class="response">{{ output }}<br><br>---------------<br><br></p>
+				<form method="POST">
+					<label for="user_rating">How helpful was the response on a scale from 1 (not at all) to 10 (solved the request)?</label>
+					<input type="text" id="user_input" name="user_input" placeholder="1-10"><br>
+					<button type="submit" id="rating_button">Submit</button>
+				</form>
+			{% endif %}
+		</div>
+	</body>
+</html>
+
