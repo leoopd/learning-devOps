@@ -7,18 +7,18 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
  - not yet reachable via compose, issue seems to lie in the network that is used
    - works via CLI
      ```bash
-    docker run -d \
-    --name=code-server \
-    --network=host \
-    -e PUID=1000 \
-    -e PGID=1000 \
-    -e TZ=Europe/London \
-    -e PASSWORD=example \
-    -e DEFAULT_WORKSPACE=/example \
-    -v /example:/example \
-    --restart unless-stopped \
-    lscr.io/linuxserver/code-server:latest
-    ```
+     docker run -d \
+     --name=code-server \
+     --network=host \
+     -e PUID=1000 \
+     -e PGID=1000 \
+     -e TZ=Europe/London \
+     -e PASSWORD=example \
+     -e DEFAULT_WORKSPACE=/example \
+     -v /example:/example \
+     --restart unless-stopped \
+     lscr.io/linuxserver/code-server:latest
+     ```
 
 #### 14.05.23
 docker-compose.yml is reachable 
