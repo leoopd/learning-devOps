@@ -31,3 +31,7 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
 3. preparing the env to run the scs_ai flaskapp
    - added the venv, installed required modules and `pip freeze >> requirements.txt`
     - app runs fine
+
+4. added requirements for building the image to docker/scs_ai
+   - includes webapp functionality and Dockerfile
+   - building the Dockerfile is not working yet, fails on `RUN pip install requirements.txt`
