@@ -20,3 +20,8 @@ docker run -d \
 lscr.io/linuxserver/code-server:latest
 ```
 
+#### 14.05.23
+docker-compose.yml is reachable 
+- if network_mode: host is added on code-server-config level
+trying to make the password via file work
+- normal file can't be found by code-server
