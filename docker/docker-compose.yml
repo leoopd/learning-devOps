@@ -3,15 +3,19 @@ version: "2.1"
 services:
   code-server:
     image: lscr.io/linuxserver/code-server:latest
+    secrets:
+      - password_file
     container_name: code-server
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
-      - PASSWORD=~/code-server/secrets/password
+      - TZ=Europe/London
+      - FILE__PASSWORD=/home/leo/docker/code-server/secrets/password
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
-      - ~/code-server/data:/config
-    ports:
-      - 8443:8443
+      - /home/leo/docker/code-server/config:/config
+    network_mode: host
     restart: unless-stopped
+secrets:
+  password_file:
+    file: /home/leo/docker/code-server/secrets/password
