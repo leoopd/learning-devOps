@@ -42,4 +42,4 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
 _4. added requirements for building the image to docker/scs_ai_
    - _includes webapp functionality and Dockerfile_
    - _building the Dockerfile is not working yet, fails on `RUN pip install requirements.txt`_
-    - the problem seems to be the deafult bridge network, the host network works
+   - the problem seems to be the deafult bridge network, the host network works
