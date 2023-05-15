@@ -39,7 +39,11 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
 
 #### 15.05.23
 
-_4. added requirements for building the image to docker/scs_ai_
+_1. added requirements for building the image to docker/scs_ai_
    - _includes webapp functionality and Dockerfile_
    - _building the Dockerfile is not working yet, fails on `RUN pip install requirements.txt`_
    - the problem seems to be the deafult bridge network, the host network works
+
+2. trying to make the app run inside the container
+  - issue seems to be the missing env var for the openai key
+  - adding the aikey to a file in a different dir allows to set it without exposing the key `docker run -d -p 8000:5000 --env-file ~/env_file.txt --name scsai-test scs-ai:dnsset`
