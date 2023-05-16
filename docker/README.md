@@ -51,8 +51,24 @@ _1. added requirements for building the image to docker/scs_ai_
 #### 16.05.23
 
 1. containers still without internet connection
- - issue seems to be the docker0 network thats DOWN 
+ - issue seems to be the docker0 network thats DOWN (`ip link show docker0`)
  - ```
    15: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
    link/ether 02:42:46:f1:b5:80 brd ff:ff:ff:ff:ff:ff
    ```
+ - `networkctl` looks weird too
+ - ```
+   IDX LINK            TYPE     OPERATIONAL SETUP
+   1 lo              loopback carrier     configured
+   2 eno2            ether    no-carrier  configuring
+   3 eno1            ether    routable    configured
+   15 docker0         bridge   no-carrier  configuring
+   18 br-ba1fce2699d3 bridge   no-carrier  configuring
+   26 veth6db1def     ether    degraded    configuring
+   ```
+ - /etc/resolv.conf looks fine
+ - testing with different networks with different gateways/subents did not help
+ - testing with different dns did not help `docker run dns=8.8.8.8 <img>`, setting resolv.conf inside the container
+ - deleting docker0 and restarting docker did not help
+ - testing different images, containers etc did not help
+ - etc.
