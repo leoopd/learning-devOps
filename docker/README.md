@@ -47,3 +47,10 @@ _1. added requirements for building the image to docker/scs_ai_
 2. trying to make the app run inside the container
   - issue seems to be the missing env var for the openai key
   - adding the aikey to a file in a different dir allows to set it without exposing the key `docker run -d -p 8000:5000 --env-file ~/env_file.txt --name scsai-test scs-ai:dnsset`
+
+#### 16.05.23
+
+1. containers still without internet connection
+ - issue seems to be the docker0 network thats DOWN 
+ - `15: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 02:42:46:f1:b5:80 brd ff:ff:ff:ff:ff:ff`
