@@ -52,5 +52,5 @@ _1. added requirements for building the image to docker/scs_ai_
 
 1. containers still without internet connection
  - issue seems to be the docker0 network thats DOWN 
- - `15: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
-    link/ether 02:42:46:f1:b5:80 brd ff:ff:ff:ff:ff:ff`
+ - ```15: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 02:42:46:f1:b5:80 brd ff:ff:ff:ff:ff:ff```
