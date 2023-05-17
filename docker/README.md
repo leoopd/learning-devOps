@@ -72,3 +72,6 @@ _1. added requirements for building the image to docker/scs_ai_
  - deleting docker0 and restarting docker did not help
  - testing different images, containers etc did not help
  - etc.
+
+#### 17.05.23
+
