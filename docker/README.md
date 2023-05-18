@@ -75,3 +75,28 @@ _1. added requirements for building the image to docker/scs_ai_
 
 #### 17.05.23
 
+1. still testing container internet connection
+  - new interfaces do not get added to docker0
+  - custom bridge networks did not change anything
+  - initialized a reinstall to see if the problem persists
+
+2. setting up docker according to official doc
+  - connection problems persist
+
+#### 18.05.23
+
+1. `cat /etc/resolv.conf` inside a container shows some issue
+   ```
+   search stratoserver.net
+   nameserver 127.0.0.11
+   options edns0 trust-ad ndots:0
+   ```
+  - setting the dns by editing daemon () does not work
+  - setting dns by adding it to run command does not work
+  - if container is inside host network, the dns is set just fine
+    ```
+    search stratoserver.net
+    nameserver 10.1.2.3
+    nameserver 8.8.8.8
+    options edns0 trust-ad
+    ```
