@@ -45,7 +45,7 @@ def scs_ai():
             """, (user_rating, user_input, output))
             connection.commit()
             connection.close()
-            return render_template('ai_template.html')
+            return render_template('ai_templates.html')
 
         # If user fills the prompt-textbox create a response, return it and write user_input
         # and response to the database.
@@ -72,9 +72,9 @@ def scs_ai():
         connection.commit()
         connection.close()
 
-        return render_template('ai_template.html', output=output, user_input=user_input, user_rating=user_rating)
+        return render_template('ai_templates.html', output=output, user_input=user_input, user_rating=user_rating)
     else:
-        return render_template('ai_template.html')         
+        return render_template('ai_templates.html')         
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

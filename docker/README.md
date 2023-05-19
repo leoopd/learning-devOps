@@ -100,3 +100,7 @@ _1. added requirements for building the image to docker/scs_ai_
     nameserver 8.8.8.8
     options edns0 trust-ad
     ```
+2. will continue with the main project for now
+  - initialized containers with `--network host`
+  - creating a compose yaml to bring up a container for code-server and one for the scsai app
+

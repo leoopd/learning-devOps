@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python3", "-m", "run, "flaskapp.py"]
+CMD ["python3", "-m", "flaskapp"]
