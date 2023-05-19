@@ -89,6 +89,9 @@
 					<input type="text" id="user_rating" name="user_rating" placeholder="1-10"><br>
 					<button type="submit" id="rating_button">Submit</button>
 				</form>
+				<script>
+                                	document.getElementById('rating_button').addEventListener('click', function() {this.style.display = 'none'});
+                       		</script>
 			{% endif %}
 		</div>
 	</body>
