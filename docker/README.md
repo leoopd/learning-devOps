@@ -121,12 +121,12 @@ _1. added requirements for building the image to docker/scs_ai_
 1. app works properly and can be reached via port :5000
 2. **finally** figured out how to make custom bridge networks run
   - problem seems to be the interface that gets created
-   - the gateway ip doesn't get assiged to the interface
-   - containers added to the network do not get added to the interface
+    - the gateway ip doesn't get assiged to the interface
+    - containers added to the network do not get added to the interface
   - problem can be fixed by doing the following:
-   - create a custom bridge network
-   - get the interface name with `ip addr show`, for example br-exmple
-   - assign the gateway ip of the subnet configured in the custom bridge network to said interface with `sudo ip addr add 172.18.1.1/24 dev br-exmpl`
-   - get the name of the container interface with `ip addr show`, for example veth00exmpl
-   - assign the container interface to the custom bridge `sudo brctl addif br-example veth00exmpl`
-   - the container has internet access
+    - create a custom bridge network
+    - get the interface name with `ip addr show`, for example br-exmple
+    - assign the gateway ip of the subnet configured in the custom bridge network to said interface with `sudo ip addr add 172.18.1.1/24 dev br-exmpl`
+    - get the name of the container interface with `ip addr show`, for example veth00exmpl
+    - assign the container interface to the custom bridge `sudo brctl addif br-example veth00exmpl`
+    - the container has internet access
