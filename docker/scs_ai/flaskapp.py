@@ -8,6 +8,8 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 app = Flask(__name__)
 user_input = ''
+user_rating = 0
+outpu = ''
 
 def init_db():
     connection = sqlite3.connect('conversations.db')
@@ -31,6 +33,8 @@ def before_first_request():
 @app.route('/', methods=['GET', 'POST'])
 def scs_ai():
     global user_input
+    global user_rating
+    global output
     if request.method == 'POST':
 
         # If user fills the rating-textbox write the rating to the database.
