@@ -104,3 +104,29 @@ _1. added requirements for building the image to docker/scs_ai_
   - initialized containers with `--network host`
   - creating a compose yaml to bring up a container for code-server and one for the scsai app
 
+#### 19.05.23
+
+1. bugfixing the app to properly run inside a container
+  - creating a docker-compose.yml that will boot up the containers containing 1) the code-srver and 2) the scsai-app
+  - fixing the Dockerfile for the scsai-app, fixing some minor bugs in flaskapp.py
+  - fixing the html template by correcting the second button name and implementing a function to listen for a click on the button
+2. setting the env vars by using an .env file combined with .gitignore
+  - contains the pw for code-server and openai api key for scsai-app
+3. implementing env vars into docker-compose.yml
+  - vars set in .enc can be assigned by ${VARNAME}
+
+
+#### 20.05.23
+
+1. app works properly and can be reached via port :5000
+2. **finally** figured out how to make custom bridge networks run
+  - problem seems to be the interface that gets created
+  1) the gateway ip doesn't get assiged to the interface
+  2) containers added to the network do not get added to the interface
+  - problem can be fixed by doing the following:
+  1) create a custom bridge network
+  2) get the interface name with `ip addr show`, for example br-exmple
+  3) assign the gateway ip of the subnet configured in the custom bridge network to said interface with `sudo ip addr add 172.18.1.1/24 dev br-exmpl`
+  4) get the name of the container interface with `ip addr show`, for example veth00exmpl
+  5) assign the container interface to the custom bridge `sudo brctl addif br-example veth00exmpl`
+  6) the container has internet access
