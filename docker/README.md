@@ -38,7 +38,6 @@ set up docker on hostmachine, created and configured docker-compose.yml to make 
     - the problem seems to be the deafult bridge network, the host network works
 
 #### 15.05.23
-
 _1. added requirements for building the image to docker/scs_ai_
    - _includes webapp functionality and Dockerfile_
    - _building the Dockerfile is not working yet, fails on `RUN pip install requirements.txt`_
@@ -49,7 +48,6 @@ _1. added requirements for building the image to docker/scs_ai_
   - adding the aikey to a file in a different dir allows to set it without exposing the key `docker run -d -p 8000:5000 --env-file ~/env_file.txt --name scsai-test scs-ai:dnsset`
 
 #### 16.05.23
-
 1. containers still without internet connection
  - issue seems to be the docker0 network thats DOWN (`ip link show docker0`)
  - ```
@@ -74,7 +72,6 @@ _1. added requirements for building the image to docker/scs_ai_
  - etc.
 
 #### 17.05.23
-
 1. still testing container internet connection
   - new interfaces do not get added to docker0
   - custom bridge networks did not change anything
@@ -84,7 +81,6 @@ _1. added requirements for building the image to docker/scs_ai_
   - connection problems persist
 
 #### 18.05.23
-
 1. `cat /etc/resolv.conf` inside a container shows some issue
    ```
    search stratoserver.net
@@ -105,7 +101,6 @@ _1. added requirements for building the image to docker/scs_ai_
   - creating a compose yaml to bring up a container for code-server and one for the scsai app
 
 #### 19.05.23
-
 1. bugfixing the app to properly run inside a container
   - creating a docker-compose.yml that will boot up the containers containing 1) the code-srver and 2) the scsai-app
   - fixing the Dockerfile for the scsai-app, fixing some minor bugs in flaskapp.py
@@ -117,7 +112,6 @@ _1. added requirements for building the image to docker/scs_ai_
 
 
 #### 20.05.23
-
 1. app works properly and can be reached via port :5000
 2. **finally** figured out how to make custom bridge networks run
   - problem seems to be the interface that gets created
@@ -130,3 +124,9 @@ _1. added requirements for building the image to docker/scs_ai_
     - get the name of the container interface with `ip addr show`, for example veth00exmpl
     - assign the container interface to the custom bridge `sudo brctl addif br-example veth00exmpl`
     - the container has internet access
+
+#### 21.05.23
+1. implementing the new network into the docker compose file
+  - named as `docker-compose.common.yml`
+  - veth ifs need to be manually assigned to the bridge if after container are started
+2. testing networks and containers with ipv6 enabled 
