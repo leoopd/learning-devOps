@@ -31,3 +31,4 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
         --location /home/ubuntu-22.04.2-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd \
         --extra-args 'console=ttyS0,115200n8'
       ```
+    - set up works but vm has no internet connection
