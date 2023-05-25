@@ -32,3 +32,12 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
         --extra-args 'console=ttyS0,115200n8'
       ```
     - set up works but vm has no internet connection
+
+#### 25.05.23
+
+1. fixing internet connection of vms
+    - issue seems to be the same as before, adding the vm interface to the bridge gives internet connection
+    - docker containers created on the vms have internet access by default and the networking works properly
+
+2. setting up 1 master and 2 worker nodes
+    - 
