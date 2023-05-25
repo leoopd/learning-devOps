@@ -40,4 +40,10 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - docker containers created on the vms have internet access by default and the networking works properly
 
 2. setting up 1 master and 2 worker nodes
-    - 
+    ```
+    subnet      192.168.122.0/24
+    virbr0      192.168.122.1
+    master01    192.168.122.200
+    worker01    192.168.122.201
+    worker02    192.168.122.202
+    ```
