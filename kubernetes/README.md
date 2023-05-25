@@ -50,3 +50,6 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - installed docker and kubernetes on all nodes
     - set the master on worker nodes /etc/hosts `192.168.122.200 kube-master`
     - created snapshots of vms with `virsh snapshot-create-as <vm> initial --description "<vm> docker and k8s"`
+     - to revert to snapshots:
+     `virsh snapshot-revert master01 initial`
+     `virsh snapshot-revert master01 --current`
