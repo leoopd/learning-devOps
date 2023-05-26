@@ -56,4 +56,8 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 
 #### 26.05.23
 
-1. setting up kubernetes cluster on master node `sudo kubeadm init --control-plane-endpoint kube-master:6443 --pod-network-cidr 192.168.122.0/23`
+1. setting up kubernetes cluster on master node 
+    - `sudo kubeadm init --control-plane-endpoint kube-master:6443 --pod-network-cidr 192.168.122.0/23`
+    - correction: 25.05: all nodes need to set /etc/hosts `192.168.122.200 kube-master` not just worker nodes
+    - set up works after correcting that mistake
+2. 
