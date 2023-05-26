@@ -53,3 +53,7 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
      - to revert to snapshots:
      `virsh snapshot-revert master01 initial`
      `virsh snapshot-revert master01 --current`
+
+#### 26.05.23
+
+1. setting up the kubernetes cluster on the master node `sudo kubeadm init --control-plane-endpoint kube-master:6443 --pod-network-cidr 192.168.122.0/23`
