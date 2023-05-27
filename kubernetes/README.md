@@ -64,4 +64,9 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - using calico E `curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/calico.yaml -O`
     - setting CALICO_IPV4POOL_CIDR to 192.168.122.0/24
 
+#### 27.05.23
 
+1. finishing the network setup
+    - kubectl cannot reach localhost
+2. fixing the localhost error
+    - ports are open, still doesn't work
