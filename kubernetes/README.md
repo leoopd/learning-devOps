@@ -60,4 +60,8 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - `sudo kubeadm init --control-plane-endpoint kube-master:6443 --pod-network-cidr 192.168.122.0/23`
     - correction: 25.05: all nodes need to set /etc/hosts `192.168.122.200 kube-master` not just worker nodes
     - set up works after correcting that mistake
-2. 
+2. setting up network
+    - using calico E `curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/calico.yaml -O`
+    - setting CALICO_IPV4POOL_CIDR to 192.168.122.0/24
+
+
