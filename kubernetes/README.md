@@ -78,3 +78,6 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 1. still working on localhost error
     - kubectl can reach localhost but only after initializing, after like a minute it stops working
     - TZ synced, still doesn't work
+
+2. resetting the whole set up
+    - creating snapshots after each installation+configuration to debug
