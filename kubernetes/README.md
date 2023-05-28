@@ -81,3 +81,4 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 
 2. resetting the whole set up
     - creating snapshots after each installation+configuration to debug
+    - testing different network plugins, subnets, installing components one by one according to k8s documentation, different host vms, etc.
