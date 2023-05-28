@@ -82,3 +82,24 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 2. resetting the whole set up
     - creating snapshots after each installation+configuration to debug
     - testing different network plugins, subnets, installing components one by one according to k8s documentation, different host vms, etc.
+
+3. cluster stable after doing the following
+    - disable swap `sudo swapoff -a`
+    - disable swap in /etc/fstab `sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab`
+    - delete swap files `cat /proc/swaps`
+    - install docker `sudo apt-get install docker.io`
+    - install cri-dockerd: https://github.com/Mirantis/cri-dockerd
+    - install kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+    - install kubeadm: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-runtime
+    - initialize a cluster:
+    - ```
+      sudo kubeadm init --control-plane-endpoint=192.168.122.200 \
+      --pod-network-cidr=192.168.122.0/24 \
+      --apiserver-advertise-address=192.168.122.200 \
+      --cri-socket=unix:///var/run/cri-dockerd.sock
+      ```
+    - set user-variables to use kubectl
+    - download the network-plugin (flannel) yaml: https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml
+    - change network under `net-conf.json` to the correct pod-network-cidr used
+    - apply network-plugin `kubectl apply -f kube-flannel.yml`
+ `kubectl get nodes --all-namespaces` shows components starting, after all components are up `kubectl get nodes` shows the cluster is ready
