@@ -70,3 +70,7 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - kubectl cannot reach localhost
 2. fixing the localhost error
     - ports are open, still doesn't work
+    - firewall enabled/disabled doesn't work
+    - other subnet configs (ie calico default) doesn't work
+
+#### 28.05.23
