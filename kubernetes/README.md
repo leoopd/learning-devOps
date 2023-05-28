@@ -74,3 +74,7 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - other subnet configs (ie calico default) doesn't work
 
 #### 28.05.23
+
+1. still working on localhost error
+    - kubectl can reach localhost but only after initializing, after like a minute it stops working
+    - TZ synced, still doesn't work
