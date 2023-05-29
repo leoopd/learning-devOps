@@ -109,3 +109,5 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 1. master node still stable and running
 2. creating two worker nodes and joining them
     - `kubeadm join --token <token> <master>:<port> --discovery-token-ca-cert-hash sha256:<hash> --cri-socket=unix:///var/run/cri-dockerd.sock`
+    - worker nodes stable and running
+    - 
