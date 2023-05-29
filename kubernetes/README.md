@@ -112,3 +112,6 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - worker nodes stable and running
     - worker nodes can not run workloads
      - probably due to incorrect setting of the subnet, seems like k8s assigns /24 blocks to each node
+
+3. recreating the cluster
+    - setting flannels default subnet as pod network cidr
