@@ -110,4 +110,5 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 2. creating two worker nodes and joining them
     - `kubeadm join --token <token> <master>:<port> --discovery-token-ca-cert-hash sha256:<hash> --cri-socket=unix:///var/run/cri-dockerd.sock`
     - worker nodes stable and running
-    - 
+    - worker nodes can not run workloads
+     - probably due to incorrect setting of the subnet, seems like k8s assigns /24 blocks to each node
