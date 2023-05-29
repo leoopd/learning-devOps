@@ -103,3 +103,9 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - change network under `net-conf.json` to the correct pod-network-cidr used
     - apply network-plugin `kubectl apply -f kube-flannel.yml`
  `kubectl get nodes --all-namespaces` shows components starting, after all components are up `kubectl get nodes` shows the cluster is ready
+
+#### 29.05.23
+
+1. master node still stable and running
+2. creating two worker nodes and joining them
+    `kubeadm join --token <token> <master>:<port> --discovery-token-ca-cert-hash sha256:<hash> --cri-socket=unix:///var/run/cri-dockerd.sock`
