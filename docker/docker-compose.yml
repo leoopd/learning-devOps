@@ -8,7 +8,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - PASSWORD=removed
+      - PASSWORD=${PASSWORD}
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
       - /home/leo/docker/code-server/config:/config
@@ -17,10 +17,10 @@ services:
     network_mode: host
     restart: unless-stopped
   scsai:
-    image: scsai:latest
+    image: scs-ai:latest
     container_name: scsai-server
     environment:
-      - ENV-FILE=env_file.txt
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - /home/leo/docker/scs-ai/config:/config
     ports:
