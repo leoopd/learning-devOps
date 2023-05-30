@@ -115,3 +115,9 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
 
 3. recreating the cluster
     - setting flannels default subnet as pod network cidr
+
+#### 30.05.23
+
+1. setting up master and workers
+    - new pod-network-cidr is 10.244.0.0/16
+    - cluster is up and running, flannel works with default confid and workers can join
