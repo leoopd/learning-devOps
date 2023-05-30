@@ -13,7 +13,6 @@ services:
       - /home/leo/docker/code-server/config:/config
     ports:
       - 8443:8443
-    network_mode: host
     restart: unless-stopped
   scsai:
     image: scsai:latest
@@ -24,5 +23,4 @@ services:
       - /home/leo/docker/scs-ai/config:/config
     ports:
       - 8000:5000
-    network_mode: host
     restart: unless-stopped
