@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: scsai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: scsai
+  template:
+    metadata:
+      labels:
+        app: scsai
+    spec:
+      containers:
+      - name: scsai
+        image: ler0y/scsai:latest
+        ports:
+        - containerPort: 5000
