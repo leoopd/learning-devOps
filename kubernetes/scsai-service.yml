@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: scsai-service
+spec:
+  selector:
+    app.kubernetes.io/name: scsai
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
