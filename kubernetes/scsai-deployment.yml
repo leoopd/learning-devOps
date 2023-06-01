@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: scsai
+        env:
+          - name: SCSAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: api-key
+                name: api-key
         image: ler0y/scsai:latest
         ports:
         - containerPort: 5000
