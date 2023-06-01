@@ -125,3 +125,10 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - running a nginx test image and exposing it to port 80
     - webapp is reachable from host machine (outside of the cluster)
     
+#### 31.05.23
+
+1. making sure, that the scsai image works as intended
+    - pushing image to DockerHub > ler0y/scsai:latest
+    - docker image works, the plan is to provide the api key by a secret
+2. cluster did not restart properly, the worker nodes cannot run deployments properly
+    - trying to debug (docker containers, resetting with `sudo kubeadm reset --cri-socket=unix://var/run/cri-dockerd.sock`)
