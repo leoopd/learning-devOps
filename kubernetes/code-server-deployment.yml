@@ -21,15 +21,13 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: pw
-                name: codepw-key
+                name: code-pw
           - name: PUID
             value: "1000"
           - name: PGID
             value: "1000"
           - name: TZ
             value: "Europe/London"
-          - name: DEFAULT_WORKSPACE
-            value: "/config/workspace"
         image: lscr.io/linuxserver/code-server:latest
         ports:
         - containerPort: 8443
