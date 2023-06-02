@@ -132,3 +132,70 @@ Will contain the kubernetes specific parts of hosting my scs_ai repo with docker
     - docker image works, the plan is to provide the api key by a secret
 2. cluster did not restart properly, the worker nodes cannot run deployments properly
     - trying to debug (docker containers, resetting with `sudo kubeadm reset --cri-socket=unix://var/run/cri-dockerd.sock`)
+
+#### 01.06.23
+
+1. resetting the cluster using snapshots created earlier
+    - master and worker nodes are stable
+    - worker nodes can take workloads
+
+2. creating a secret to store the api key and setting it in spec.template.spec.containers.env
+```
+env:
+  - name: OPENAI_API_KEY
+    valueFrom:
+      secretKeyRef:
+        key: api-key
+        name: api-key
+```
+
+3. creating a service to expose the webapp on the node ip
+    - `kubectl expose deployment <deployment> --type=NodePort --port=<port>`
+    - kubectl get service shows the port that the service exposes the app on
+
+#### 02.06.23
+
+1. creating a reverse proxy to expose the app on the internet
+    - setting up the nginx config under /etc/nginx/sites-available/
+    - scsai app is reachable on port 80
+2. changing the reverse proxy to reach the scsai app under /scsai and the code-server on /code
+    - expanding the k8s deployment, creating a secret to store the password and a service to expose it
+    ```
+    kubectl create secret generic <secret> --from-literal=<ID>=<Val>
+    kubectl expose deployment code-server-deployment --type=NodePort --port=8443
+    kubectl get svc
+    ```
+    - changing nginx config from earlier
+    - works well if linked to one app, routing to different apps does not work yet
+3. setting up nginx to route to different apps using paths
+    1. allow nginx `sudo ufw allow 'Nginx HTTP'`
+    2. create domain config `sudo nano /etc/nginx/sites-available/<domain>`
+     ```
+     server {
+        listen 80;
+        listen [::]:80;
+
+        server_name 85.214.129.212 www.ler0y.com;
+
+        #    location / {
+        #
+        #    }
+
+        location /code/ {
+            proxy_pass http://192.168.122.200:30781/;
+            proxy_redirect off;
+        #   include proxy_params;
+            proxy_set_header Host $host;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection upgrade;
+            proxy_set_header Accept-Encoding gzip;
+        }
+
+        location /scsai/ {
+            proxy_pass http://192.168.122.200:30335/;
+            proxy_redirect off;
+            include proxy_params;
+        }
+    }
+    ```
+   3. restart nginx `systemctl restart nginx`
