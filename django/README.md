@@ -10,6 +10,10 @@ Adding www.ler0y.com to allowed hosts to log into the admin page
 Login doesn't work yet
 - adding host to `CSRF_TRUSTED_ORIGINS` to allow posts
 - login works
-- 
+
+### 08.06.23
+Login works but the css doesn't load properly, trying to find out why
+
+
 ### Misc
 For all helpful commands, random tips and tricks and whatever needs to be remembered
