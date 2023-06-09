@@ -14,6 +14,8 @@ Login doesn't work yet
 ### 08.06.23
 Login works but the css doesn't load properly, trying to find out why
 
+### 09.06.23
+CSS still not loading properly, problem seems to be related to nginx serving of static files
 
 ### Misc
 For all helpful commands, random tips and tricks and whatever needs to be remembered
