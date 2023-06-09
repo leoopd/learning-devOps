@@ -21,5 +21,7 @@ CSS still not loading properly, problem seems to be related to nginx serving of 
   - nginx logs showed permission denied errors
   - chown the /static/ dir did not help
 
+- moving the static dir to /var/www/ did the trick
+  - css gets applied properly now
 ### Misc
 For all helpful commands, random tips and tricks and whatever needs to be remembered
