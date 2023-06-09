@@ -16,6 +16,10 @@ Login works but the css doesn't load properly, trying to find out why
 
 ### 09.06.23
 CSS still not loading properly, problem seems to be related to nginx serving of static files
+- seems like it was a permissions problem
+  - browser showed 403: Permission denied when trying to access css and such
+  - nginx logs showed permission denied errors
+  - chown the /static/ dir did not help
 
 ### Misc
 For all helpful commands, random tips and tricks and whatever needs to be remembered
