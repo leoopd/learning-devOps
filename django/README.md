@@ -5,5 +5,11 @@ Following the [tutorial](https://docs.djangoproject.com/en/4.2/intro/tutorial01/
 
 ### 06.06.23
 Adding www.ler0y.com to allowed hosts to log into the admin page
+
+### 07.06.23
+Login doesn't work yet
+- adding host to `CSRF_TRUSTED_ORIGINS` to allow posts
+- login works
+- 
 ### Misc
 For all helpful commands, random tips and tricks and whatever needs to be remembered
